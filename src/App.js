@@ -69,8 +69,8 @@ class App extends Component {
     const DashBoardWrapper = () => {
       return <DashBoard stocksdata={this.state.stocksdata} />;
     };
-    const StocksWrapper = () => {
-      return <Stocks stocksdata={this.state.stocksdata} />;
+    const StocksWrapper = (props) => {
+      return <Stock stocksdata={this.state.stocksdata}{...props} />;
     };
 
 
@@ -83,7 +83,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={DashBoardWrapper} />
             <Route exact path="/stocks"/>
-            <Route exact path="/stocks/:symbol" component={Stock} />
+            <Route  path="/stocks/:symbol" component={StocksWrapper} />
           </Switch>
         </div>
       </Router>
